@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/mangrove"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/mangrove"
+    },
+    {
+      "item": "tfcwoodwork:bast/mangrove"
+    },
+    {
+      "item": "tfc:wood/stripped_log/mangrove"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/mangrove",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/mangrove"
   }
 }

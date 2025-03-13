@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/log/maple"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bark/maple"
+    },
+    {
+      "item": "tfcwoodwork:bark/maple"
+    },
+    {
+      "item": "tfc:wood/log/maple"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/wood/maple",
-    "count": 1
+    "item": "tfc:wood/wood/maple"
   }
 }

@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/log/rosewood"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bark/rosewood"
+    },
+    {
+      "item": "tfcwoodwork:bark/rosewood"
+    },
+    {
+      "item": "tfc:wood/log/rosewood"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/wood/rosewood",
-    "count": 1
+    "item": "tfc:wood/wood/rosewood"
   }
 }

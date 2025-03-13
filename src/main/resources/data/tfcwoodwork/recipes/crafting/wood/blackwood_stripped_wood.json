@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/blackwood"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/blackwood"
+    },
+    {
+      "item": "tfcwoodwork:bast/blackwood"
+    },
+    {
+      "item": "tfc:wood/stripped_log/blackwood"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/blackwood",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/blackwood"
   }
 }

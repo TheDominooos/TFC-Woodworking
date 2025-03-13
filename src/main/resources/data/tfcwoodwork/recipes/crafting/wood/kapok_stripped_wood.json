@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/kapok"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/kapok"
+    },
+    {
+      "item": "tfcwoodwork:bast/kapok"
+    },
+    {
+      "item": "tfc:wood/stripped_log/kapok"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/kapok",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/kapok"
   }
 }

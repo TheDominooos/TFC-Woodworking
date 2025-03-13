@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/aspen"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/aspen"
+    },
+    {
+      "item": "tfcwoodwork:bast/aspen"
+    },
+    {
+      "item": "tfc:wood/stripped_log/aspen"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/aspen",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/aspen"
   }
 }

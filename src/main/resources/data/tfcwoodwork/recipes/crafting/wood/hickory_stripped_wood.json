@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/hickory"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/hickory"
+    },
+    {
+      "item": "tfcwoodwork:bast/hickory"
+    },
+    {
+      "item": "tfc:wood/stripped_log/hickory"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/hickory",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/hickory"
   }
 }

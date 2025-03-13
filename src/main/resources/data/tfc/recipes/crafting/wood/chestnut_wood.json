@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/log/chestnut"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bark/chestnut"
+    },
+    {
+      "item": "tfcwoodwork:bark/chestnut"
+    },
+    {
+      "item": "tfc:wood/log/chestnut"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/wood/chestnut",
-    "count": 1
+    "item": "tfc:wood/wood/chestnut"
   }
 }
