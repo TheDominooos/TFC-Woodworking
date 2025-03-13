@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/willow"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/willow"
+    },
+    {
+      "item": "tfcwoodwork:bast/willow"
+    },
+    {
+      "item": "tfc:wood/stripped_log/willow"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/willow",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/willow"
   }
 }

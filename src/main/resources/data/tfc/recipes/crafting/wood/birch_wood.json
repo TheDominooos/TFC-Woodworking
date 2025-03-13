@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/log/birch"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bark/birch"
+    },
+    {
+      "item": "tfcwoodwork:bark/birch"
+    },
+    {
+      "item": "tfc:wood/log/birch"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/wood/birch",
-    "count": 1
+    "item": "tfc:wood/wood/birch"
   }
 }

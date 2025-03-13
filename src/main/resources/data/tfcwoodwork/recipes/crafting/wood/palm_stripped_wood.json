@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/palm"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/palm"
+    },
+    {
+      "item": "tfcwoodwork:bast/palm"
+    },
+    {
+      "item": "tfc:wood/stripped_log/palm"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/palm",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/palm"
   }
 }

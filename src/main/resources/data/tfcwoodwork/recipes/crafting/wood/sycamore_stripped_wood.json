@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/sycamore"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/sycamore"
+    },
+    {
+      "item": "tfcwoodwork:bast/sycamore"
+    },
+    {
+      "item": "tfc:wood/stripped_log/sycamore"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/sycamore",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/sycamore"
   }
 }

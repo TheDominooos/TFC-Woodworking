@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " Y ",
-    " X ",
-    " Y "
-  ],
-  "key": {
-    "X": {
-      "item": "tfc:wood/stripped_log/maple"
-    },
-    "Y": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "tfcwoodwork:bast/maple"
+    },
+    {
+      "item": "tfcwoodwork:bast/maple"
+    },
+    {
+      "item": "tfc:wood/stripped_log/maple"
     }
-  },
+  ],
   "result": {
-    "item": "tfc:wood/stripped_wood/maple",
-    "count": 1
+    "item": "tfc:wood/stripped_wood/maple"
   }
 }
