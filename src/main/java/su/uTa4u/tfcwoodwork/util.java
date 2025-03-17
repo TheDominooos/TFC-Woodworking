@@ -7,6 +7,7 @@ import net.dries007.tfc.common.capabilities.Capabilities;
 import net.dries007.tfc.util.BlockItemPlacement;
 import net.dries007.tfc.util.Helpers;
 import net.dries007.tfc.util.InteractionManager;
+import com.therighthon.afc.common.blocks.AFCWood;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
