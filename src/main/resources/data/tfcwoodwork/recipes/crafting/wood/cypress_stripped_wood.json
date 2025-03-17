@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bast/cypress"
+    },
+    {
+      "item": "tfcwoodwork:bast/cypress"
+    },
+    {
+      "item": "afc:wood/stripped_log/cypress"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/stripped_wood/cypress"
+  }
+}

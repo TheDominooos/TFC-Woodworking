@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bast/eucalyptus"
+    },
+    {
+      "item": "tfcwoodwork:bast/eucalyptus"
+    },
+    {
+      "item": "afc:wood/stripped_log/eucalyptus"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/stripped_wood/eucalyptus"
+  }
+}

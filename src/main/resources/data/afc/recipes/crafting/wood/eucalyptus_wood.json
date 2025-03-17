@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bark/eucalyptus"
+    },
+    {
+      "item": "tfcwoodwork:bark/eucalyptus"
+    },
+    {
+      "item": "afc:wood/log/eucalyptus"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/wood/eucalyptus"
+  }
+}

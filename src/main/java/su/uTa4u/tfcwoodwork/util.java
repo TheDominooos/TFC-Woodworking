@@ -44,9 +44,17 @@ public class util {
     public static <T extends Enum<T>> BlockState getStateToPlace(Map<Wood, Map<T, RegistryObject<Block>>> map, Wood wood, T blockTypes) {
         return map.get(wood).get(blockTypes).get().defaultBlockState();
     }
+    
+    public static <T extends Enum<T>> BlockState getStateToPlaceAFC(Map<AFCWood, Map<T, RegistryObject<Block>>> map, AFCWood wood, T blockTypes) {
+        return map.get(wood).get(blockTypes).get().defaultBlockState();
+    }
 
     public static <T extends Enum<T>> Item getItemToDrop(Map<Wood, Map<T, RegistryObject<Block>>> map, Wood wood, T blockTypes) {
         return getStateToPlace(map, wood, blockTypes).getBlock().asItem();
+    }
+    
+    public static <T extends Enum<T>> Item getItemToDropAFC(Map<AFCWood, Map<T, RegistryObject<Block>>> map, AFCWood wood, T blockTypes) {
+        return getStateToPlaceAFC(map, wood, blockTypes).getBlock().asItem();
     }
 
     public static void spawnDropsPrecise(Level level, BlockPos pos, Vec3 offset, ItemStack itemStack) {
@@ -80,10 +88,19 @@ public class util {
     public static void shootLogHalves(Level level, BlockPos pos, Wood wood, Direction dir) {
         shootChoppedWood(level, pos, wood, BlockType.DEBARKED_HALF, dir);
     }
+    
+    public static void shootLogHalvesAFC(Level level, BlockPos pos, AFCWood wood, Direction dir) {
+        shootChoppedWoodAFC(level, pos, wood, BlockType.DEBARKED_HALF, dir);
+    }
 
     public static void shootLogQuarters(Level level, BlockPos pos, Wood wood, Direction dir) {
         shootChoppedWood(level, pos, wood, BlockType.DEBARKED_QUARTER, dir);
     }
+    
+    public static void shootLogQuartersAFC(Level level, BlockPos pos, AFCWood wood, Direction dir) {
+        shootChoppedWoodAFC(level, pos, wood, BlockType.DEBARKED_QUARTER, dir);
+    }
+
 
     private static void shootChoppedWood(Level level, BlockPos pos, Wood wood, BlockType type, Direction dir) {
         Direction.Axis axis = dir.getAxis();
@@ -125,9 +142,61 @@ public class util {
         level.addFreshEntity(projRight);
 
     }
+    
+    private static void shootChoppedWoodAFC(Level level, BlockPos pos, AFCWood wood, BlockType type, Direction dir) {
+        Direction.Axis axis = dir.getAxis();
+        double deltaX = 0;
+        double deltaY = 0.25;
+        double deltaZ = 0;
+        double offsetX = 0;
+        double offsetY = 0.5;
+        double offsetZ = 0;
+        if (axis == Direction.Axis.Z) {
+            deltaX = 0.75;
+            offsetX = 0.1875;
+        } else {
+            deltaZ = 0.75;
+            offsetZ = 0.1875;
+        }
+        Entity projLeft;
+        Entity projRight;
+        BlockState state = getStateToPlaceAFC(ModBlocks.AFCWOODS, wood, type);
+        if (Config.logProjectileVsItem) {
+            if (type == BlockType.DEBARKED_HALF) {
+                projLeft  = new LogHalfProjectile(pos, state, 0.5 + offsetX, offsetY, 0.5 + offsetZ, level, dir, true);
+                projRight = new LogHalfProjectile(pos, state, 0.5 - offsetX, offsetY, 0.5 - offsetZ, level, dir, false);
+            } else if (type == BlockType.DEBARKED_QUARTER) {
+                projLeft  = new LogQuarterProjectile(pos, state, 0.5 + offsetX, offsetY, 0.5 + offsetZ, level, dir, true);
+                projRight = new LogQuarterProjectile(pos, state, 0.5 - offsetX, offsetY, 0.5 - offsetZ, level, dir, false);
+            } else {
+                LOGGER.error("Attempted to shoot non existent projectile, why?");
+                return;
+            }
+            ((AbstractWoodProjectile) projLeft).shoot(deltaX, deltaY, deltaZ, 0.3f, 0.0f);
+            ((AbstractWoodProjectile) projRight).shoot(-deltaX, deltaY, -deltaZ, 0.3f, 0.0f);
+        } else {
+            ItemStack itemStack = new ItemStack(state.getBlock().asItem());
+            projLeft  = new ItemEntity(level, pos.getX() + 0.5 + offsetX, pos.getY() + offsetY, pos.getZ() + 0.5 + offsetZ, itemStack,  deltaX / 4, deltaY,  deltaZ / 4);
+            projRight = new ItemEntity(level, pos.getX() + 0.5 - offsetX, pos.getY() + offsetY, pos.getZ() + 0.5 - offsetZ, itemStack, -deltaX / 4, deltaY, -deltaZ / 4);
+        }
+        level.addFreshEntity(projLeft);
+        level.addFreshEntity(projRight);
+
+    }
 
     public static <T extends Enum<T>> Optional<Pair<Wood, T>> getWoodWoodTypePair(Map<Wood, Map<T, RegistryObject<Block>>> map, BlockState state) {
         for (Map.Entry<Wood, Map<T, RegistryObject<Block>>> entry1 : map.entrySet()) {
+            for (Map.Entry<T, RegistryObject<Block>> entry2 : entry1.getValue().entrySet()) {
+                if (state.is(entry2.getValue().get())) {
+                    return Optional.of(new Pair<>(entry1.getKey(), entry2.getKey()));
+                }
+            }
+        }
+        return Optional.empty();
+    }
+    
+    public static <T extends Enum<T>> Optional<Pair<AFCWood, T>> getWoodWoodTypePairAFC(Map<AFCWood, Map<T, RegistryObject<Block>>> map, BlockState state) {
+        for (Map.Entry<AFCWood, Map<T, RegistryObject<Block>>> entry1 : map.entrySet()) {
             for (Map.Entry<T, RegistryObject<Block>> entry2 : entry1.getValue().entrySet()) {
                 if (state.is(entry2.getValue().get())) {
                     return Optional.of(new Pair<>(entry1.getKey(), entry2.getKey()));

@@ -20,6 +20,16 @@
     "tfcwoodwork:debarked_log/spruce",
     "tfcwoodwork:debarked_log/sycamore",
     "tfcwoodwork:debarked_log/white_cedar",
-    "tfcwoodwork:debarked_log/willow"
+    "tfcwoodwork:debarked_log/willow",
+	"tfcwoodwork:debarked_log/baobab",
+	"tfcwoodwork:debarked_log/eucalyptus",
+	"tfcwoodwork:debarked_log/cypress",
+	"tfcwoodwork:debarked_log/fig",
+	"tfcwoodwork:debarked_log/hevea",
+	"tfcwoodwork:debarked_log/ipe",
+	"tfcwoodwork:debarked_log/ironwood",
+	"tfcwoodwork:debarked_log/mahogany",
+	"tfcwoodwork:debarked_log/teak",
+	"tfcwoodwork:debarked_log/tualang"
   ]
 }

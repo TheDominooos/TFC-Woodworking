@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bast/baobab"
+    },
+    {
+      "item": "tfcwoodwork:bast/baobab"
+    },
+    {
+      "item": "afc:wood/stripped_log/baobab"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/stripped_wood/baobab"
+  }
+}

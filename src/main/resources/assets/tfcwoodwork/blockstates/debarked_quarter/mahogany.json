@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tfcwoodwork:block/debarked_quarter/mahogany"
+    },
+    "facing=east": {
+      "model": "tfcwoodwork:block/debarked_quarter/mahogany",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tfcwoodwork:block/debarked_quarter/mahogany",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tfcwoodwork:block/debarked_quarter/mahogany",
+      "y": 270
+    }
+  }
+}

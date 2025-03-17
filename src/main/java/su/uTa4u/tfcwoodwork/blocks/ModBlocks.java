@@ -10,6 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import su.uTa4u.tfcwoodwork.TFCWoodworking;
 import su.uTa4u.tfcwoodwork.items.ModItems;
+import com.therighthon.afc.common.blocks.AFCWood;
 
 import java.util.Map;
 import java.util.function.Supplier;
@@ -19,6 +20,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS;
 
     public static final Map<Wood, Map<BlockType, RegistryObject<Block>>> WOODS;
+    public static final Map<AFCWood, Map<BlockType, RegistryObject<Block>>> AFCWOODS;
     public static final RegistryObject<Block> LOG_PILE;
 
     static {
@@ -26,6 +28,9 @@ public class ModBlocks {
         WOODS = Helpers.mapOfKeys(Wood.class, (wood) ->
                 Helpers.mapOfKeys(BlockType.class, (type) ->
                         registerBlockWithItem(type.getName(wood), type.sup)));
+        AFCWOODS = Helpers.mapOfKeys(AFCWood.class, (wood) ->
+        Helpers.mapOfKeys(BlockType.class, (type) ->
+                registerBlockWithItem(type.getName(wood), type.sup)));
         LOG_PILE = registerBlock("log_pile", LogPileExBlock::new);
     }
 

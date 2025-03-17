@@ -1,0 +1,9 @@
+{
+  "parent": "tfcwoodwork:block/debarked_quarter/debarked_quarter",
+  "textures": {
+    "side": "afc:block/wood/sheet/fig",
+    "top": "afc:block/wood/log_top/fig",
+    "inner": "tfcwoodwork:block/log_inner/fig",
+    "particle": "afc:block/wood/sheet/fig"
+  }
+}

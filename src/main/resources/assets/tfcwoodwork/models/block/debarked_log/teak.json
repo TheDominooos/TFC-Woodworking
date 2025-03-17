@@ -1,0 +1,8 @@
+{
+  "parent": "tfcwoodwork:block/debarked_log/debarked_log",
+  "textures": {
+    "side": "afc:block/wood/sheet/teak",
+    "top": "afc:block/wood/log_top/teak",
+    "particle": "afc:block/wood/sheet/teak"
+  }
+}

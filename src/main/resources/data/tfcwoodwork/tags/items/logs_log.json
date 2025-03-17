@@ -22,6 +22,22 @@
     "#tfc:sycamore_logs",
     "#tfc:white_cedar_logs",
     "#tfc:willow_logs",
+	"#afc:baobab_logs",
+	"#afc:cypress_logs",
+	"#afc:eucalyptus_logs",
+	"#afc:fig_logs",
+	"#afc:hevea_logs",
+	"#afc:ipe_logs",
+	"#afc:ironwood_logs",
+	"#afc:mahogany_logs",
+	"#afc:teak_logs",
+	"#afc:tualang_logs",
+	"#afc:black_oak_logs",
+	"#afc:gum_arabic_logs",
+	"#afc:poplar_logs",
+	"#afc:rainbow_eucalyptus_logs",
+	"#afc:redcedar_logs",
+	"#afc:rubber_fig_logs",
     "tfcwoodwork:debarked_log/acacia",
     "tfcwoodwork:debarked_log/ash",
     "tfcwoodwork:debarked_log/aspen",
@@ -41,6 +57,7 @@
     "tfcwoodwork:debarked_log/spruce",
     "tfcwoodwork:debarked_log/sycamore",
     "tfcwoodwork:debarked_log/white_cedar",
-    "tfcwoodwork:debarked_log/willow"
+    "tfcwoodwork:debarked_log/willow",
+	"tfcwoodwork:debarked_log/baobab"
   ]
 }

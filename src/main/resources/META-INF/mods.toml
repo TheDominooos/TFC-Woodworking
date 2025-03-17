@@ -13,6 +13,13 @@ authors="${mod_authors}" #optional
 description='''${mod_description}''' #mandatory
 
 [[dependencies.tfcwoodwork]]
+    modId="afc"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.tfcwoodwork]]
     modId="tfc"
     mandatory=true
     versionRange="[0,)"

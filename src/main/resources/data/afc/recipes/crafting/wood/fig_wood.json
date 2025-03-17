@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bark/fig"
+    },
+    {
+      "item": "tfcwoodwork:bark/fig"
+    },
+    {
+      "item": "afc:wood/log/fig"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/wood/fig"
+  }
+}

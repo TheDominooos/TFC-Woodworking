@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bast/teak"
+    },
+    {
+      "item": "tfcwoodwork:bast/teak"
+    },
+    {
+      "item": "afc:wood/stripped_log/teak"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/stripped_wood/teak"
+  }
+}

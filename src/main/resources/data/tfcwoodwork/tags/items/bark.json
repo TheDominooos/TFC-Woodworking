@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tfcwoodwork:bark/acacia",
+	"tfcwoodwork:bark/acacia",
     "tfcwoodwork:bark/ash",
     "tfcwoodwork:bark/aspen",
     "tfcwoodwork:bark/birch",
@@ -20,6 +20,16 @@
     "tfcwoodwork:bark/spruce",
     "tfcwoodwork:bark/sycamore",
     "tfcwoodwork:bark/white_cedar",
-    "tfcwoodwork:bark/willow"
+    "tfcwoodwork:bark/willow",
+	"tfcwoodwork:bark/baobab",
+	"tfcwoodwork:bark/eucalyptus",
+	"tfcwoodwork:bark/cypress",
+	"tfcwoodwork:bark/fig",
+	"tfcwoodwork:bark/hevea",
+	"tfcwoodwork:bark/ipe",
+	"tfcwoodwork:bark/ironwood",
+	"tfcwoodwork:bark/mahogany",
+	"tfcwoodwork:bark/teak",
+	"tfcwoodwork:bark/tualang"
   ]
 }

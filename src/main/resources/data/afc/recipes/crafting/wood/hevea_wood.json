@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bark/hevea"
+    },
+    {
+      "item": "tfcwoodwork:bark/hevea"
+    },
+    {
+      "item": "afc:wood/log/hevea"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/wood/hevea"
+  }
+}

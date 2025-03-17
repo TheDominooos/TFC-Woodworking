@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bark/ironwood"
+    },
+    {
+      "item": "tfcwoodwork:bark/ironwood"
+    },
+    {
+      "item": "afc:wood/log/ironwood"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/wood/ironwood"
+  }
+}

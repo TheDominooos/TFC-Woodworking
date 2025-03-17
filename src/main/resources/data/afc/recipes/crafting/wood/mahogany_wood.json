@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bark/mahogany"
+    },
+    {
+      "item": "tfcwoodwork:bark/mahogany"
+    },
+    {
+      "item": "afc:wood/log/mahogany"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/wood/mahogany"
+  }
+}

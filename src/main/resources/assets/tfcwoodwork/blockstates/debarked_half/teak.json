@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tfcwoodwork:block/debarked_half/teak"
+    },
+    "facing=east": {
+      "model": "tfcwoodwork:block/debarked_half/teak",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tfcwoodwork:block/debarked_half/teak",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tfcwoodwork:block/debarked_half/teak",
+      "y": 270
+    }
+  }
+}

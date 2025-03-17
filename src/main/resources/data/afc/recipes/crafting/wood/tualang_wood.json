@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tfcwoodwork:bark/tualang"
+    },
+    {
+      "item": "tfcwoodwork:bark/tualang"
+    },
+    {
+      "item": "afc:wood/log/tualang"
+    }
+  ],
+  "result": {
+    "item": "afc:wood/wood/tualang"
+  }
+}

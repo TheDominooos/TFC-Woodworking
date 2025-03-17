@@ -4,6 +4,8 @@ import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
+import com.therighthon.afc.common.blocks.AFCBlocks;
+import com.therighthon.afc.common.items.AFCItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -31,11 +33,11 @@ import su.uTa4u.tfcwoodwork.blocks.BlockType;
 import su.uTa4u.tfcwoodwork.blocks.ModBlocks;
 import su.uTa4u.tfcwoodwork.items.ModItems;
 import su.uTa4u.tfcwoodwork.sounds.ModSounds;
-
 import java.util.Random;
 
 public class useOnEventHandler {
-    private static final Random rng = new Random();
+	
+	private static final Random rng = new Random();
 
     private static final Block[] DTTFC_LOGS = new Block[Wood.VALUES.length];
 
@@ -151,6 +153,9 @@ public class useOnEventHandler {
     //TODO: make bark/bast pileable
 
     //TODO: make this not suck, refactor!
+    
+    // Yes im aware this is total dogshit but i don't really know java and can't be bothered to spend more time on this
+    
     public static InteractionResult useTool(util.TOOL tool, Level level, Player player, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         Direction dir = player.getDirection();
@@ -190,15 +195,17 @@ public class useOnEventHandler {
                         newState = Blocks.AIR.defaultBlockState();
                         util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.LOG_FENCE), Config.fenceFromLog));
                     }
+                    case STRIPPED_LOG -> {
+                        newState = Blocks.AIR.defaultBlockState();
+                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.FENCE), Config.fenceFromLog));
+                    }
                     case PLANKS -> {
                         newState = Blocks.AIR.defaultBlockState();
-                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.FENCE), Config.fenceFromPlank));
                         util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.STAIRS), 1));
                     }
                     case STAIRS -> {
                         newState = Blocks.AIR.defaultBlockState();
-                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.FENCE), Config.fenceFromStair));
-                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.SLAB), 1));
+                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.SLAB), 2));
                     }
                     case SLAB -> {
                         newState = Blocks.AIR.defaultBlockState();
@@ -237,6 +244,92 @@ public class useOnEventHandler {
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }
             return InteractionResult.sidedSuccess(level.isClientSide);
-        }).orElse(InteractionResult.PASS));
+        }).orElseGet(() -> util.getWoodWoodTypePairAFC(AFCBlocks.WOODS, state).map((pair1) -> {
+            BlockState newState;
+            if (tool == util.TOOL.AXE) {
+                switch (pair1.value()) {
+                    case LOG -> {
+                        newState = util.getStateToPlaceAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.STRIPPED_LOG);
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBarkAFC(pair1.key()), Config.barkDropCount));
+                    }
+                    case STRIPPED_LOG -> {
+                        newState = util.getStateToPlaceAFC(ModBlocks.AFCWOODS, pair1.key(), BlockType.DEBARKED_LOG);
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBastAFC(pair1.key()), Config.bastDropCount));
+                        
+                    }
+                    case WOOD -> {
+                        newState = util.getStateToPlaceAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.STRIPPED_WOOD);
+                        Item bark = ModItems.getBarkAFC(pair1.key());
+                        util.spawnDropsCardinal(level, pos, new ItemStack(bark, Config.barkDropCount));
+                        util.spawnDropsAbove(level, pos, new ItemStack(bark, Config.barkDropCount * 2));
+                    }
+                    case STRIPPED_WOOD -> {
+                        newState = util.getStateToPlaceAFC(ModBlocks.AFCWOODS, pair1.key(), BlockType.DEBARKED_LOG);
+                        Item bast = ModItems.getBastAFC(pair1.key());
+                        util.spawnDropsCardinal(level, pos, new ItemStack(bast, Config.bastDropCount));
+                        util.spawnDropsAbove(level, pos, new ItemStack(bast, Config.bastDropCount * 2));
+                    }
+                    default -> {
+                        return InteractionResult.PASS;
+                    }
+                }
+                level.setBlockAndUpdate(pos, newState);
+                level.playSound(player, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0f, 1.0f);
+            } else if (tool == util.TOOL.SAW) {
+                switch (pair1.value()) {
+                    case LOG -> {
+                        newState = Blocks.AIR.defaultBlockState();
+                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.LOG_FENCE), Config.fenceFromLog));
+                    }
+                    case STRIPPED_LOG -> {
+                        newState = Blocks.AIR.defaultBlockState();
+                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.FENCE), Config.fenceFromLog));
+                    }
+                    case PLANKS -> {
+                        newState = Blocks.AIR.defaultBlockState();
+                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.STAIRS), 1));
+                    }
+                    case STAIRS -> {
+                        newState = Blocks.AIR.defaultBlockState();
+                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.SLAB), 1));
+                    }
+                    case SLAB -> {
+                        newState = Blocks.AIR.defaultBlockState();
+                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.TRAPDOOR), Config.trapdoorFromSlab));
+                    }
+                    default -> {
+                        return InteractionResult.PASS;
+                    }
+                }
+                util.spawnDropsAbove(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                level.setBlockAndUpdate(pos, newState);
+                level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }).orElseGet(() -> util.getWoodWoodTypePairAFC(ModBlocks.AFCWOODS, state).map((pair2) -> {
+            if (tool == util.TOOL.AXE && level.getBlockState(pos.above()) == Blocks.AIR.defaultBlockState()) {
+                switch (pair2.value()) {
+                    case DEBARKED_LOG -> util.shootLogHalvesAFC(level, pos, pair2.key(), dir);
+                    case DEBARKED_HALF -> util.shootLogQuartersAFC(level, pos, pair2.key(), dir);
+                    default -> {
+                        return InteractionResult.PASS;
+                    }
+                }
+                level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+                level.playSound(player, pos, ModSounds.LOG_CHOP.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
+            } else if (tool == util.TOOL.SAW) {
+                switch (pair2.value()) {
+                    case DEBARKED_HALF -> util.spawnDrops(level, pos, new ItemStack(AFCItems.SUPPORTS.get(pair2.key()).get(), Config.supportPerLogHalf));
+                    case DEBARKED_QUARTER -> util.spawnDrops(level, pos, new ItemStack(AFCItems.LUMBER.get(pair2.key()).get(), Config.lumberPerLogQuarter));
+                    default -> {
+                        return InteractionResult.PASS;
+                    }
+                }
+                util.spawnDrops(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+                level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
+            }
+            return InteractionResult.sidedSuccess(level.isClientSide);
+        }).orElse(InteractionResult.PASS))));
     }
 }

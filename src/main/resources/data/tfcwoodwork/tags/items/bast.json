@@ -20,6 +20,16 @@
     "tfcwoodwork:bast/spruce",
     "tfcwoodwork:bast/sycamore",
     "tfcwoodwork:bast/white_cedar",
-    "tfcwoodwork:bast/willow"
+    "tfcwoodwork:bast/willow",
+	"tfcwoodwork:bast/baobab",
+	"tfcwoodwork:bast/eucalyptus",
+	"tfcwoodwork:bast/cypress",
+	"tfcwoodwork:bast/fig",
+	"tfcwoodwork:bast/hevea",
+	"tfcwoodwork:bast/ipe",
+	"tfcwoodwork:bast/ironwood",
+	"tfcwoodwork:bast/mahogany",
+	"tfcwoodwork:bast/teak",
+	"tfcwoodwork:bast/tualang"
   ]
 }
