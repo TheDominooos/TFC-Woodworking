@@ -215,7 +215,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDropsAbove(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
                 level.setBlockAndUpdate(pos, newState);
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }
@@ -239,7 +239,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDrops(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
                 level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }
@@ -301,7 +301,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDropsAbove(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
                 level.setBlockAndUpdate(pos, newState);
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }
@@ -325,7 +325,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDrops(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
                 level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }

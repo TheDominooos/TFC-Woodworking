@@ -65,6 +65,13 @@ public class util {
     public static void spawnDrops(Level level, BlockPos pos, ItemStack itemStack) {
         spawnDropsPrecise(level, pos, 0.5, 0.5, 0.5, itemStack);
     }
+    
+    public static void spawnDropsChance(Level level, BlockPos pos, ItemStack itemStack) {
+    	int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
+    	if (randomNum==1) {
+    		spawnDropsPrecise(level, pos, 0.5, 0.5, 0.5, itemStack);
+    	}
+    }
 
     public static void spawnDropsPrecise(Level level, BlockPos pos, double offsetX, double offsetY, double offsetZ, ItemStack itemStack) {
         spawnDropsPrecise(level, pos, offsetX, offsetY, offsetZ, itemStack, 0, 0, 0);
