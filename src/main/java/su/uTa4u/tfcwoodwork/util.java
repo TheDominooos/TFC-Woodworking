@@ -62,26 +62,30 @@ public class util {
         spawnDropsPrecise(level, pos, offset.x, offset.y, offset.z, itemStack);
     }
 
-    public static void spawnDrops(Level level, BlockPos pos, ItemStack itemStack) {
-        spawnDropsPrecise(level, pos, 0.5, 0.5, 0.5, itemStack);
-    }
-    
-    public static void spawnDropsChance(Level level, BlockPos pos, ItemStack itemStack) {
-    	int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-    	if (randomNum==1) {
+    public static void spawnDrops(Level level, BlockPos pos, ItemStack itemStack, int percentchance) {
+    	int randomNum = ThreadLocalRandom.current().nextInt(1, 99 + 1);
+    	if (randomNum<=percentchance) {
     		spawnDropsPrecise(level, pos, 0.5, 0.5, 0.5, itemStack);
     	}
     }
-
+    
+    public static void spawnDrops(Level level, BlockPos pos, ItemStack itemStack) {
+    	spawnDrops(level, pos, itemStack, 100);
+    }
+    
     public static void spawnDropsPrecise(Level level, BlockPos pos, double offsetX, double offsetY, double offsetZ, ItemStack itemStack) {
         spawnDropsPrecise(level, pos, offsetX, offsetY, offsetZ, itemStack, 0, 0, 0);
     }
 
-    public static void spawnDropsAbove(Level level, BlockPos pos, ItemStack itemStack) {
-    	int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-    	if (randomNum==1) {
+    public static void spawnDropsAbove(Level level, BlockPos pos, ItemStack itemStack, int percentchance) {
+    	int randomNum = ThreadLocalRandom.current().nextInt(1, 99 + 1);
+    	if (randomNum<=percentchance) {
     		spawnDropsPrecise(level, pos, 0.5, 1.05, 0.5, itemStack);
     	};
+    }
+    
+    public static void spawnDropsAbove(Level level, BlockPos pos, ItemStack itemStack) {
+    	spawnDropsAbove(level, pos, itemStack, 100);
     }
 
     public static void spawnDropsPrecise(Level level, BlockPos pos, double offsetX, double offsetY, double offsetZ, ItemStack itemStack, double deltaX, double deltaY, double deltaZ) {
@@ -89,23 +93,27 @@ public class util {
         level.addFreshEntity(new ItemEntity(level, pos.getX() + offsetX, pos.getY() + offsetY, pos.getZ() + offsetZ, itemStack, deltaX, deltaY, deltaZ));
     }
 
-    public static void spawnDropsCardinal(Level level, BlockPos pos, ItemStack itemStack) {
-    	int randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-    	if (randomNum==1) {
+    public static void spawnDropsCardinal(Level level, BlockPos pos, ItemStack itemStack, int percentchance) {
+    	int randomNum = ThreadLocalRandom.current().nextInt(1, 99 + 1);
+    	if (randomNum<=percentchance) {
     		spawnDropsPrecise(level, pos, 0.5, 0.5, -0.2, itemStack, 0, 0.05, -0.05);	
     	}
-    	randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-    	if (randomNum==1) {
+    	randomNum = ThreadLocalRandom.current().nextInt(1, 99 + 1);
+    	if (randomNum<=percentchance) {
     		spawnDropsPrecise(level, pos, 0.5, 0.5,  1.2, itemStack, 0, 0.05, 0.05);	
     	}
-    	randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-    	if (randomNum==1) {
+    	randomNum = ThreadLocalRandom.current().nextInt(1, 99 + 1);
+    	if (randomNum<=percentchance) {
     		spawnDropsPrecise(level, pos, -0.2, 0.5, 0.5, itemStack, -0.05, 0.05, 0);	
     	}
-    	randomNum = ThreadLocalRandom.current().nextInt(1, 3 + 1);
-    	if (randomNum==1) {
+    	randomNum = ThreadLocalRandom.current().nextInt(1, 99 + 1);
+    	if (randomNum<=percentchance) {
     		spawnDropsPrecise(level, pos, 1.2, 0.5, 0.5, itemStack, 0.05, 0.05, 0);	
     	}
+    }
+    
+    public static void spawnDropsCardinal(Level level, BlockPos pos, ItemStack itemStack) {
+    	spawnDropsCardinal(level, pos, itemStack, 100);
     }
 
     public static void shootLogHalves(Level level, BlockPos pos, Wood wood, Direction dir) {

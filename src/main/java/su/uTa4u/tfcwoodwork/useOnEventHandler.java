@@ -165,23 +165,23 @@ public class useOnEventHandler {
                 switch (pair1.value()) {
                     case LOG -> {
                         newState = util.getStateToPlace(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.STRIPPED_LOG);
-                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBark(pair1.key()), Config.barkDropCount));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBark(pair1.key()), Config.barkDropCount), Config.barkDropChance);
                     }
                     case STRIPPED_LOG -> {
                         newState = util.getStateToPlace(ModBlocks.WOODS, pair1.key(), BlockType.DEBARKED_LOG);
-                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBast(pair1.key()), Config.bastDropCount));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBast(pair1.key()), Config.bastDropCount), Config.bastDropChance);
                     }
                     case WOOD -> {
                         newState = util.getStateToPlace(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.STRIPPED_WOOD);
                         Item bark = ModItems.getBark(pair1.key());
-                        util.spawnDropsCardinal(level, pos, new ItemStack(bark, Config.barkDropCount));
-                        util.spawnDropsAbove(level, pos, new ItemStack(bark, Config.barkDropCount * 2));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBark(pair1.key()), Config.barkDropCount), Config.barkDropChance);
+                        util.spawnDropsAbove(level, pos, new ItemStack(bark, Config.barkDropCount), Config.barkDropChance);
                     }
                     case STRIPPED_WOOD -> {
                         newState = util.getStateToPlace(ModBlocks.WOODS, pair1.key(), BlockType.DEBARKED_LOG);
                         Item bast = ModItems.getBast(pair1.key());
-                        util.spawnDropsCardinal(level, pos, new ItemStack(bast, Config.bastDropCount));
-                        util.spawnDropsAbove(level, pos, new ItemStack(bast, Config.bastDropCount * 2));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBast(pair1.key()), Config.bastDropCount), Config.bastDropChance);
+                        util.spawnDropsAbove(level, pos, new ItemStack(bast, Config.bastDropCount), Config.bastDropChance);
                     }
                     default -> {
                         return InteractionResult.PASS;
@@ -215,7 +215,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDrops(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount), Config.sawdustDropChance);
                 level.setBlockAndUpdate(pos, newState);
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }
@@ -239,7 +239,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDrops(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount), Config.sawdustDropChance);
                 level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }
@@ -250,24 +250,24 @@ public class useOnEventHandler {
                 switch (pair1.value()) {
                     case LOG -> {
                         newState = util.getStateToPlaceAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.STRIPPED_LOG);
-                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBarkAFC(pair1.key()), Config.barkDropCount));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBarkAFC(pair1.key()), Config.barkDropCount), Config.barkDropChance);
                     }
                     case STRIPPED_LOG -> {
                         newState = util.getStateToPlaceAFC(ModBlocks.AFCWOODS, pair1.key(), BlockType.DEBARKED_LOG);
-                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBastAFC(pair1.key()), Config.bastDropCount));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(ModItems.getBastAFC(pair1.key()), Config.bastDropCount), Config.bastDropChance);
                         
                     }
                     case WOOD -> {
                         newState = util.getStateToPlaceAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.STRIPPED_WOOD);
                         Item bark = ModItems.getBarkAFC(pair1.key());
-                        util.spawnDropsCardinal(level, pos, new ItemStack(bark, Config.barkDropCount));
-                        util.spawnDropsAbove(level, pos, new ItemStack(bark, Config.barkDropCount * 2));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(bark, Config.barkDropCount), Config.barkDropChance);
+                        util.spawnDropsAbove(level, pos, new ItemStack(bark, Config.barkDropCount), Config.barkDropChance);
                     }
                     case STRIPPED_WOOD -> {
                         newState = util.getStateToPlaceAFC(ModBlocks.AFCWOODS, pair1.key(), BlockType.DEBARKED_LOG);
                         Item bast = ModItems.getBastAFC(pair1.key());
-                        util.spawnDropsCardinal(level, pos, new ItemStack(bast, Config.bastDropCount));
-                        util.spawnDropsAbove(level, pos, new ItemStack(bast, Config.bastDropCount * 2));
+                        util.spawnDropsCardinal(level, pos, new ItemStack(bast, Config.bastDropCount), Config.bastDropChance);
+                        util.spawnDropsAbove(level, pos, new ItemStack(bast, Config.bastDropCount), Config.bastDropChance);
                     }
                     default -> {
                         return InteractionResult.PASS;
@@ -301,7 +301,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDrops(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount), Config.sawdustDropChance);
                 level.setBlockAndUpdate(pos, newState);
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }
@@ -325,7 +325,7 @@ public class useOnEventHandler {
                         return InteractionResult.PASS;
                     }
                 }
-                util.spawnDropsChance(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount));
+                util.spawnDrops(level, pos, new ItemStack(ModItems.SAWDUST.get(), Config.sawdustDropCount), Config.sawdustDropChance);
                 level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
                 level.playSound(player, pos, ModSounds.LOG_SAWED.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             }

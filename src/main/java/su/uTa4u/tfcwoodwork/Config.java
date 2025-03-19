@@ -18,15 +18,30 @@ public class Config
             .comment("Default: 1")
             .defineInRange("barkDropCount", 1, 0, 64);
 
+    private static final ForgeConfigSpec.IntValue BARK_CHANCE = BUILDER
+            .comment("Chance for each bark piece to drop")
+            .comment("Default: 25")
+            .defineInRange("barkDropChance", 25, 0, 100);
+    
     private static final ForgeConfigSpec.IntValue BAST_DROP = BUILDER
             .comment("How many bast pieces to drop per side")
             .comment("Default: 1")
             .defineInRange("bastDropCount", 1, 0, 64);
+    
+    private static final ForgeConfigSpec.IntValue BAST_CHANCE = BUILDER
+            .comment("Chance for each bast piece to drop")
+            .comment("Default: 25")
+            .defineInRange("bastDropChance", 25, 0, 100);
 
     private static final ForgeConfigSpec.IntValue SAWDUST_DROP = BUILDER
             .comment("How much sawdust should drop from each saw interaction")
             .comment("Default: 1")
             .defineInRange("sawdustDropCount", 1, 0, 64);
+    
+    private static final ForgeConfigSpec.IntValue SAWDUST_CHANCE = BUILDER
+            .comment("Chance for sawdust to drop from each saw interaction")
+            .comment("Default: 15")
+            .defineInRange("sawdustDropChance", 15, 0, 100);
 
     private static final ForgeConfigSpec.IntValue SUPPORT_PER_HALF = BUILDER
             .comment("How many support should be crafted from one debarked half")
@@ -101,10 +116,13 @@ public class Config
     static final ForgeConfigSpec SPEC = BUILDER.build();
 
     public static int barkDropCount;
+    public static int barkDropChance;
     public static int bastDropCount;
+    public static int bastDropChance;
     public static int supportPerLogHalf;
     public static int lumberPerLogQuarter;
     public static int sawdustDropCount;
+    public static int sawdustDropChance;
     public static int fenceFromPlank;
     public static int fenceFromStair;
     public static int fenceFromLog;
@@ -122,10 +140,13 @@ public class Config
     static void onLoad(final ModConfigEvent event)
     {
         barkDropCount = BARK_DROP.get();
+        barkDropChance = BARK_CHANCE.get();
         bastDropCount = BAST_DROP.get();
+        bastDropChance = BAST_CHANCE.get();
         supportPerLogHalf = SUPPORT_PER_HALF.get();
         lumberPerLogQuarter = LUMBER_PER_QUARTER.get();
         sawdustDropCount = SAWDUST_DROP.get();
+        sawdustDropChance = SAWDUST_CHANCE.get();
         fenceFromPlank = FENCE_FROM_PLANK.get();
         fenceFromStair = FENCE_FROM_STAIR.get();
         fenceFromLog = FENCE_FROM_LOG.get();
