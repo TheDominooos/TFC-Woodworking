@@ -1,11 +1,11 @@
 package su.uTa4u.tfcwoodwork;
 
+import com.therighthon.afc.common.blocks.AFCBlocks;
+import com.therighthon.afc.common.items.AFCItems;
 import net.dries007.tfc.common.blocks.TFCBlocks;
 import net.dries007.tfc.common.blocks.wood.Wood;
 import net.dries007.tfc.common.items.TFCItems;
 import net.dries007.tfc.util.Helpers;
-import com.therighthon.afc.common.blocks.AFCBlocks;
-import com.therighthon.afc.common.items.AFCItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -33,6 +33,7 @@ import su.uTa4u.tfcwoodwork.blocks.BlockType;
 import su.uTa4u.tfcwoodwork.blocks.ModBlocks;
 import su.uTa4u.tfcwoodwork.items.ModItems;
 import su.uTa4u.tfcwoodwork.sounds.ModSounds;
+
 import java.util.Random;
 
 public class useOnEventHandler {
@@ -195,10 +196,6 @@ public class useOnEventHandler {
                         newState = Blocks.AIR.defaultBlockState();
                         util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.LOG_FENCE), Config.fenceFromLog));
                     }
-                    case STRIPPED_LOG -> {
-                        newState = Blocks.AIR.defaultBlockState();
-                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.FENCE), Config.fenceFromLog));
-                    }
                     case PLANKS -> {
                         newState = Blocks.AIR.defaultBlockState();
                         util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair1.key(), Wood.BlockType.STAIRS), 1));
@@ -233,6 +230,7 @@ public class useOnEventHandler {
                 level.playSound(player, pos, ModSounds.LOG_CHOP.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             } else if (tool == util.TOOL.SAW) {
                 switch (pair2.value()) {
+                    case DEBARKED_LOG -> util.spawnDrops(level, pos, new ItemStack(util.getItemToDrop(TFCBlocks.WOODS, pair2.key(), Wood.BlockType.FENCE), Config.fenceFromLog));
                     case DEBARKED_HALF -> util.spawnDrops(level, pos, new ItemStack(TFCItems.SUPPORTS.get(pair2.key()).get(), Config.supportPerLogHalf));
                     case DEBARKED_QUARTER -> util.spawnDrops(level, pos, new ItemStack(TFCItems.LUMBER.get(pair2.key()).get(), Config.lumberPerLogQuarter));
                     default -> {
@@ -281,10 +279,6 @@ public class useOnEventHandler {
                         newState = Blocks.AIR.defaultBlockState();
                         util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.LOG_FENCE), Config.fenceFromLog));
                     }
-                    case STRIPPED_LOG -> {
-                        newState = Blocks.AIR.defaultBlockState();
-                        util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.FENCE), Config.fenceFromLog));
-                    }
                     case PLANKS -> {
                         newState = Blocks.AIR.defaultBlockState();
                         util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair1.key(), Wood.BlockType.STAIRS), 1));
@@ -319,6 +313,7 @@ public class useOnEventHandler {
                 level.playSound(player, pos, ModSounds.LOG_CHOP.get(), SoundSource.BLOCKS, 0.6f, 1.0f);
             } else if (tool == util.TOOL.SAW) {
                 switch (pair2.value()) {
+                    case DEBARKED_LOG -> util.spawnDrops(level, pos, new ItemStack(util.getItemToDropAFC(AFCBlocks.WOODS, pair2.key(), Wood.BlockType.FENCE), Config.fenceFromLog));
                     case DEBARKED_HALF -> util.spawnDrops(level, pos, new ItemStack(AFCItems.SUPPORTS.get(pair2.key()).get(), Config.supportPerLogHalf));
                     case DEBARKED_QUARTER -> util.spawnDrops(level, pos, new ItemStack(AFCItems.LUMBER.get(pair2.key()).get(), Config.lumberPerLogQuarter));
                     default -> {
